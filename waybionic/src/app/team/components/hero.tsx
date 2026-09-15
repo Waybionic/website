@@ -74,10 +74,10 @@ const teams: Team[] = [
     ],
     vps: [
       { name: "Arwa Al Mousawi",  role: "VP MARKETING &\nSOFTWARE",        image: "" },
-      { name: "Ariel Lee",       role: "VP EXTERNAL &\n ACQUISITION",   image: "" },
-      { name: "Noor Ali",        role: "VP INTERNAL",   image: "/images/team/noor-ali.jpg" },
-      { name: "Abnoor Chattha",  role: "JR. VP INTERNAL",   image: "/images/team/abnoor-chattha.jpg" },
+      { name: "Abnoor Chattha",  role: "VP INTERNAL",   image: "/images/team/abnoor-chattha.jpg" },
       { name: "Yahya Elmadhoun", role: "VP FINANCE",  image: "/images/team/yahya-elmadhoun.jpg" },
+      { name: "Malik Mahdivika", role: "VP COMPETITIONS",  image: "/images/team/malik-mahdivika.jpg" },
+      
     ],
     advisors: [
       { name: "Sana Wahab", role: "ADVISOR", image: "" },
@@ -99,7 +99,7 @@ const teams: Team[] = [
     ],
     members: [
       { name: "Hailey Tran",        image: "/images/team/hailey-tran.JPG" },
-      { name: "Jaspreet Dhanoa",        image: "" },
+      { name: "Jaspreet Dhanoa",        image: "/images/team/jaspreet-dhanoa.jpg" },
       { name: "Safaa Asif",        image: "/images/team/safaa-asif.jpg" },
       { name: "Zara Daudi",        image: "" },
       { name: "Meagan Zimmel", image: "/images/team/meagan-zimmel.jpg" },
@@ -125,8 +125,9 @@ const teams: Team[] = [
       { name: "Aryan Al-Adani",            image: "/images/team/aryan-al-adani.jpg" },
       { name: "Ava Jones",            image: "" },
       { name: "Kristen Powell",            image: "" },
-      { name: "Daniel Mogylevets",            image: "" },
+      { name: "Daniel Mogylevets",            image: "/images/team/daniel-mogylevets.jpg" },
       { name: "Luke Zenha",            image: "/images/team/luke-zenha.JPG" },
+      { name: "Rashveer Sandhu, ",     image: "/images/team/rashveer-sandhu.jpg" },
       { name: "Mahavir Desai",          image: "/images/team/mahavir-desai.jpg" },
       { name: "Utsav Ojha",          image: "/images/team/utsav-ojha.jpg" },
     ],
@@ -173,6 +174,7 @@ const teams: Team[] = [
       { name: "Ajmal Khidri",      image: "/images/team/ajmal-khidri.jpg" },
       { name: "Abdullah Sheikh",      image: "/images/team/abdullah-sheikh.jpeg" },
       { name: "Malik Mahdivika",      image: "/images/team/malik-mahdivika.jpg" },
+      { name: "Hamnah Suleman",     image: "/images/team/hamnah-suleman.jpg" },
 
     ],
   },
@@ -188,8 +190,6 @@ const teams: Team[] = [
       { name: "Arwa Al Mousawi", role: "TEAM LEAD", image: "" },
     ],
     members: [
-      { name: "Jade Cosmilla",         image: "" },
-      { name: "Noor Ali", image: "/images/team/noor-ali.jpg" },
       { name: "Abnoor Chattha", image: "/images/team/abnoor-chattha.jpg" },
       { name: "Cris Wen", image: "/images/team/cris-wen.jpg" },
     ],
