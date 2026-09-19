@@ -1,9 +1,9 @@
 "use client";
 
 const link: string =
-  "https://docs.google.com/forms/d/e/1FAIpQLScLPGuKsBGBgKoTObkYkLFlaQoTd_rzHu_lrWrDQG13nmq0Pg/viewform";
+  "https://docs.google.com/forms/d/e/1FAIpQLSfITVIipDHmvHqqXcvkUu_8G8pbhNmNpiOy7u506Dgq6aMMUg/viewform";
 
-const hiring: boolean = false;
+const hiring: boolean = true;
 
 export default function Join() {
   return (
@@ -20,16 +20,16 @@ export default function Join() {
         </h2>
 
         {hiring ? (
-          <div className="space-y-12">
-            <p className="text-base" style={{ color: "#25223b" }}>
-              We&apos;re currently accepting applications. Click below to apply!
+          <div>
+            <p className="text-base mb-8" style={{ color: "#25223b" }}>
+              We&apos;re currently accepting applications for various positions. Click below to apply!
             </p>
             <a
               href={link}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block text-white text-sm px-8 py-3 rounded-full hover:opacity-90 transition"
-              style={{ backgroundColor: "#3d316e", marginTop: "32px" }}
+              style={{ backgroundColor: "#3d316e" }}
             >
               Apply Now
             </a>

@@ -73,10 +73,12 @@ const teams: Team[] = [
       { name: "Lina Dahou", role: "FOUNDER & PRESIDENT", image: "/images/team/lina-dahou.jpg" },
     ],
     vps: [
-      { name: "Arwa Al Mousawi",  role: "VP MARKETING &\nSOFTWARE",        image: "" },
+      { name: "Arwa Al Mousawi",  role: "VP MARKETING &\nSOFTWARE",        image: "/images/team/arwa-almousawi.JPG" },
       { name: "Abnoor Chattha",  role: "VP INTERNAL",   image: "/images/team/abnoor-chattha.jpg" },
-      { name: "Yahya Elmadhoun", role: "VP FINANCE",  image: "/images/team/yahya-elmadhoun.jpg" },
+      { name: "Amena Katawazi", role: "VP EXTERNAL",  image: "/images/team/amena-katawazi.JPG" },
+      { name: "Yahya Elmadhoun", role: "VP ADMIN",  image: "/images/team/yahya-elmadhoun.jpg" },
       { name: "Malik Mahdivika", role: "VP COMPETITIONS",  image: "/images/team/malik-mahdivika.jpg" },
+      { name: "Cris Wen", role: "VP FINANCE",  image: "/images/team/cris-wen.jpg" },
       
     ],
     advisors: [
@@ -124,12 +126,14 @@ const teams: Team[] = [
       { name: "Abdul Qureshi",            image: "" },
       { name: "Aryan Al-Adani",            image: "/images/team/aryan-al-adani.jpg" },
       { name: "Ava Jones",            image: "" },
-      { name: "Kristen Powell",            image: "" },
+      { name: "Kristen Powell",            image: "/images/team/kristen-powell.png" },
       { name: "Daniel Mogylevets",            image: "/images/team/daniel-mogylevets.jpg" },
       { name: "Luke Zenha",            image: "/images/team/luke-zenha.JPG" },
-      { name: "Rashveer Sandhu, ",     image: "/images/team/rashveer-sandhu.jpg" },
+      { name: "Jad Wehbi",            image: "/images/team/jad-wehbi.jpg" },
+      { name: "Rashveer Sandhu",     image: "/images/team/rashveer-sandhu.jpg" },
       { name: "Mahavir Desai",          image: "/images/team/mahavir-desai.jpg" },
       { name: "Utsav Ojha",          image: "/images/team/utsav-ojha.jpg" },
+      { name: "Gebrael Gebrael",     image: "/images/team/gebrael-gebrael.jpg" },
     ],
   },
   {
@@ -140,17 +144,15 @@ const teams: Team[] = [
     leadCircleColor: "#BEDBAC",
     memberCircleColor: "#B9AFD2",
     leads: [
-      { name: "Ahmeel Pablo", role: "TEAM LEAD", image: "" },
+      { name: "Moumita Murshed", role: "TEAM LEAD", image: "" },
+      { name: "Julie Guirguis", role: "TEAM LEAD", image: "" },
     ],
     jrLeads: [
-      { name: "Moumita Murshed", role: "JR. LEAD", image: "" },
+      { name: "Anahat Sidhu", role: "JR. LEAD", image: "/images/team/anahat-sidhu.jpg" },
     ],
     members: [
       { name: "Bridget Benedek-Koteles",  image: "/images/team/bridget-benedek-koteles.JPEG" },
-      { name: "Julie Guirguis",  image: "" },
       { name: "Hannah Nguyen",           image: "/images/team/hannah-nguyen.JPG" },
-      { name: "Anahat Sidhu",           image: "/images/team/anahat-sidhu.jpg" },
-      { name: "Amena Katawazi",           image: "/images/team/amena-katawazi.JPG" },
     ],
   },
   {
@@ -170,11 +172,13 @@ const teams: Team[] = [
     members: [
       { name: "Richard Nguyen",    image: "/images/team/richard-nguyen.png" },
       { name: "Harold Kim",        image: "/images/team/harold-kim.jpeg" },
+      { name: "Alan Bach",         image: "/images/team/alan-bach.png" },
       { name: "Khuzaymah Bin Haris",             image: "/images/team/khuzaymah-haris.png" },
       { name: "Ajmal Khidri",      image: "/images/team/ajmal-khidri.jpg" },
       { name: "Abdullah Sheikh",      image: "/images/team/abdullah-sheikh.jpeg" },
       { name: "Malik Mahdivika",      image: "/images/team/malik-mahdivika.jpg" },
       { name: "Hamnah Suleman",     image: "/images/team/hamnah-suleman.jpg" },
+      { name: "Karis Ovili",     image: "/images/team/karis-ovili.jpg" },
 
     ],
   },
@@ -187,7 +191,7 @@ const teams: Team[] = [
     memberCircleColor: "#B9AFD2",
     leads: [
       { name: "Lina Dahou", role: "TEAM LEAD", image: "/images/team/lina-dahou.jpg" },
-      { name: "Arwa Al Mousawi", role: "TEAM LEAD", image: "" },
+      { name: "Arwa Al Mousawi", role: "TEAM LEAD", image: "/images/team/arwa-almousawi.JPG" },
     ],
     members: [
       { name: "Abnoor Chattha", image: "/images/team/abnoor-chattha.jpg" },
