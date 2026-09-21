@@ -4,30 +4,28 @@ import React from "react";
 export default function Hero() {
   return (
     <section
-      className="relative w-full h-[90vh] flex items-center justify-center overflow-hidden bg-no-repeat bg-cover bg-top"
+      className="relative w-full flex items-center justify-center overflow-hidden bg-no-repeat bg-cover bg-top"
       style={{
+        height: "calc(100dvh - var(--navbar-height))",
+        minHeight: 0,
         backgroundImage: "url('/images/hero-bg2.png')",
         backgroundColor: "var(--color-deep-purple)",
       }}
       id="hero"
     >
-      {/*
-        1) A "scaling container" with max-w so it doesn't become huge on large screens.
-        2) px-4 adds a bit of padding on small screens.
-      */}
-      <div className="relative w-full max-w-[85%] sm:max-w-[540px] md:max-w-[650px] lg:max-w-[850px] xl:max-w-[850px] 2xl:max-w-[1000px] px-4 flex justify-center translate-y-[-15%] sm:translate-y-0">
-        <div className="relative w-full sm:w-fit flex justify-center">
+      <div className="hero-artwork relative flex justify-center">
+        <div className="relative w-full min-w-0 flex justify-center">
           {/*
             2) Paper note centered horizontally and scaled to fit container.
                height:auto preserves aspect ratio.
           */}
           <Image
             src="/images/waybionic_header.png"
-            alt="Paper note"
+            alt="WayBionic"
             width={5120}
             height={5120}
             priority
-            className="relative z-10 w-full sm:w-[420px] md:w-[500px] lg:w-[680px] xl:w-[750px] 2xl:w-[850px] h-auto"
+            className="relative z-10 w-full h-auto"
           />
 
           {/*
@@ -54,7 +52,7 @@ export default function Hero() {
             alt="Moon"
             width={400}
             height={400}
-            className="absolute z-5 left-[-18%] top-[80%] w-[50%] h-[70%]"
+            className="absolute z-5 left-[-14%] top-[80%] w-[50%] h-[70%]"
             priority
           />
           <Image

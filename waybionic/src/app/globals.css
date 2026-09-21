@@ -62,6 +62,116 @@ section {
   align-items: center;
 }
 
+#hero .hero-artwork {
+  width: min(76%, calc((100dvh - var(--navbar-height)) * 0.95), 1400px);
+  transform: translateY(-12%);
+}
+
+#mission {
+  min-height: calc(100svh - var(--navbar-height));
+  padding: clamp(40px, 5svh, 80px) clamp(16px, 4vw, 112px);
+  background: #fce7f3;
+  overflow-x: clip;
+  scroll-margin-top: var(--navbar-height);
+}
+
+#mission .mission-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.18fr) minmax(0, 0.82fr);
+  align-items: center;
+  gap: clamp(32px, 4vw, 112px);
+  width: 100%;
+  max-width: 2400px;
+  margin-inline: auto;
+}
+
+#mission .mission-viewer,
+#mission .mission-copy {
+  min-width: 0;
+}
+
+#mission .mission-copy {
+  padding-block: 32px 80px;
+}
+
+#mission .mission-note {
+  position: relative;
+  padding: clamp(24px, 4vw, 64px);
+  border-radius: 24px;
+  background: #ffffff;
+  box-shadow: 0 4px 12px #3c356c14;
+  text-align: center;
+  color: #292448;
+}
+
+#mission h2 {
+  margin-bottom: 20px;
+  font-size: 36px;
+  line-height: 1.2;
+  color: #3c356c;
+}
+
+#mission p {
+  max-width: 44ch;
+  margin-inline: auto;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+#mission .mission-stamp {
+  position: absolute;
+  top: -38px;
+  left: -20px;
+  width: clamp(72px, 6vw, 144px);
+  height: auto;
+  filter: drop-shadow(0 4px 4px #29244822);
+}
+
+#mission .mission-mascot {
+  position: absolute;
+  right: -28px;
+  bottom: -80px;
+  width: clamp(112px, 11vw, 240px);
+  height: auto;
+  filter: drop-shadow(0 4px 4px #29244822);
+}
+
+@media (min-width: 1600px) {
+  #mission h2 { font-size: 48px; }
+  #mission p { font-size: 20px; }
+}
+
+@media (min-width: 2200px) {
+  #mission h2 { font-size: 56px; }
+  #mission p { font-size: 22px; }
+}
+
+@media (max-width: 899px) {
+  #mission .mission-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+  }
+
+  #mission .mission-copy {
+    order: -1;
+    width: 100%;
+    max-width: 640px;
+    margin-inline: auto;
+    padding-block: 16px 0;
+  }
+
+  #mission .mission-viewer {
+    width: 100%;
+    max-width: 768px;
+    margin-inline: auto;
+  }
+
+  #mission .mission-note { padding: 28px 24px; }
+  #mission h2 { font-size: 28px; }
+  #mission .mission-stamp { top: -28px; left: -8px; }
+  #mission .mission-mascot { display: none; }
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: 'LemonMilk', sans-serif;
 }

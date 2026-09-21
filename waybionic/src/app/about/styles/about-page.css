@@ -1,8 +1,373 @@
 .about-page {
+  --about-ink: #3c356c;
+  --about-body: #393448;
+  --about-muted: #6a617a;
+  --about-line: #d9d6df;
+  color: var(--about-body);
+  background: #ffffff;
+  letter-spacing: 0;
+}
+
+.about-page section {
+  display: block;
+  min-height: 0;
+  padding-block: 48px;
+  scroll-margin-top: calc(var(--navbar-height) + 16px);
+}
+
+.about-page .about-inner {
+  width: min(100% - 96px, 1800px);
+  margin-inline: auto;
+}
+
+.about-page h1,
+.about-page h2,
+.about-page h3 {
+  color: var(--about-ink);
+  overflow-wrap: break-word;
+}
+
+.about-page h1 {
+  margin: 12px 0 28px;
+  font-size: 48px;
+  line-height: 1.15;
+}
+
+.about-page h2 {
+  font-size: 28px;
+  line-height: 1.3;
+}
+
+.about-page h3 {
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.about-page p {
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.about-page .about-eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--about-muted);
+}
+
+.about-page .about-intro {
+  padding-block: 48px 40px;
+  background-color: #f2edf8;
+  background-image: linear-gradient(#3c356c05 1px, transparent 1px), linear-gradient(90deg, #3c356c05 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.about-page .about-intro-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
+}
+
+.about-page .about-lead {
+  max-width: 34ch;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--about-ink);
+}
+
+.about-page .about-intro-detail {
+  max-width: 66ch;
+}
+
+.about-page .about-intro-detail > a {
+  margin-top: 12px;
+}
+
+.about-page .about-text-link,
+.about-page .about-action-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  min-height: 44px;
+  font-size: 14px;
+  line-height: 1.4;
+  font-weight: 700;
+  color: var(--about-ink);
+}
+
+.about-page a svg {
+  flex-shrink: 0;
+}
+
+.about-page .about-text-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.about-page a:focus-visible {
+  outline: 2px solid #69519a;
+  outline-offset: 5px;
+}
+
+.about-page .about-section-heading {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 48px;
+  align-items: end;
+  margin-bottom: 28px;
+}
+
+.about-page .about-section-heading .about-eyebrow {
+  margin-bottom: 10px;
+}
+
+.about-page .about-section-heading > p {
+  max-width: 58ch;
+  color: var(--about-muted);
+}
+
+.about-page .about-arm-band {
+  background: #eef8f3;
+}
+
+.about-page .about-arm-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: 48px;
+  align-items: center;
+}
+
+.about-page .about-model {
+  min-width: 0;
+}
+
+.about-page [data-testid='arm-stage'],
+.about-page .about-model-loading {
+  height: clamp(320px, 48svh, 620px);
+}
+
+.about-page .about-model-loading {
+  display: grid;
+  place-items: center;
+  color: var(--about-muted);
+}
+
+.about-page .about-facts {
+  display: grid;
+  gap: 12px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #cdded5;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.about-page .about-facts > div {
+  display: grid;
+  grid-template-columns: 112px minmax(0, 1fr);
+  gap: 16px;
+}
+
+.about-page .about-facts dt {
+  color: var(--about-muted);
+}
+
+.about-page .about-facts dd {
+  font-weight: 600;
+}
+
+.about-page .about-assemblies {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.about-page .about-assemblies li {
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr);
+  gap: 16px;
+  padding-top: 24px;
+}
+
+.about-page .about-index {
+  font-size: 12px;
+  font-weight: 700;
+  color: #34785c;
+  padding-top: 3px;
+}
+
+.about-page .about-assemblies p {
+  margin-top: 6px;
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.about-page .about-prototype-note {
+  margin-top: 24px;
+  font-size: 12px;
+  color: var(--about-muted);
+}
+
+.about-page .about-tracks {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+}
+
+.about-page .about-track {
+  border-top: 3px solid #9ccbb7;
+  padding-top: 24px;
+}
+
+.about-page .about-track:nth-child(2) { border-color: #efb0c4; }
+.about-page .about-track:nth-child(3) { border-color: #b5a7d6; }
+
+.about-page .about-track > svg {
+  color: var(--about-ink);
+  margin-bottom: 20px;
+}
+
+.about-page .about-track h3 {
+  margin-block: 8px 12px;
+  font-size: 18px;
+}
+
+.about-page .about-track > p:last-child {
+  font-size: 15px;
+}
+
+.about-page .about-projects {
+  background: #f7f7fa;
+}
+
+.about-page .about-repository {
+  display: grid;
+  grid-template-columns: minmax(200px, 0.8fr) minmax(0, 1.5fr) auto;
+  align-items: start;
+  gap: 32px;
+  padding-block: 28px;
+  border-top: 1px solid var(--about-line);
+}
+
+.about-page .about-repository:last-child {
+  border-bottom: 1px solid var(--about-line);
+}
+
+.about-page .about-repository-name {
+  display: flex;
+  align-items: start;
+  gap: 14px;
+}
+
+.about-page .about-repository-name > svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: var(--about-ink);
+}
+
+.about-page .about-repository-status {
+  margin-top: 8px;
+  font-size: 12px;
+  color: var(--about-muted);
+}
+
+.about-page .about-repository-description p {
+  max-width: 68ch;
+  font-size: 14px;
+}
+
+.about-page .about-technologies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  margin-top: 14px;
+  list-style: none;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--about-muted);
+}
+
+.about-page .about-projects-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding-top: 12px;
+}
+
+.about-page .about-projects-footer p {
+  font-size: 12px;
+  color: var(--about-muted);
+}
+
+.about-page .about-participate {
+  background: #fce7f3;
+}
+
+.about-page .about-participate-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 48px;
+}
+
+.about-page .about-participate h2 {
+  margin-block: 10px 16px;
+}
+
+.about-page .about-participate p {
+  max-width: 64ch;
+}
+
+.about-page .about-actions {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-  width: 100%;
-  overflow-x: hidden;
-  background-color: #f5f5f5;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.about-page .about-action-primary {
+  background: var(--about-ink);
+  color: white;
+  padding: 12px 18px;
+  border-radius: 6px;
+}
+
+.about-page .about-action-primary:hover {
+  background: #51437e;
+}
+
+@media (min-width: 1800px) {
+  .about-page h1 { font-size: 56px; }
+  .about-page h2 { font-size: 32px; }
+  .about-page .about-lead { font-size: 28px; }
+}
+
+@media (max-width: 899px) {
+  .about-page .about-inner { width: calc(100% - 48px); }
+  .about-page .about-intro-row,
+  .about-page .about-section-heading,
+  .about-page .about-arm-grid,
+  .about-page .about-tracks,
+  .about-page .about-repository,
+  .about-page .about-participate-row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+  }
+  .about-page h1 { font-size: 36px; }
+  .about-page .about-lead { max-width: 48ch; font-size: 22px; }
+  .about-page .about-arm-grid { gap: 32px; }
+  .about-page [data-testid='arm-stage'] { height: clamp(320px, 52svh, 560px); }
+}
+
+@media (max-width: 479px) {
+  .about-page .about-inner { width: calc(100% - 32px); }
+  .about-page .about-intro,
+  .about-page section { padding-block: 32px; }
+  .about-page h1 { font-size: 30px; }
+  .about-page h2 { font-size: 24px; }
+  .about-page .about-lead { font-size: 20px; }
 }
