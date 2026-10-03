@@ -22,6 +22,8 @@ The home hero fills the dynamic viewport below the fixed navbar, with its artwor
 also constrained by available height for landscape phones. The mission layout
 stacks below 900px and expands on wider screens. Canvas height follows the viewport
 instead of a fixed desktop size, and viewer buttons have 44px touch targets.
+The mission text is aligned to the stable canvas height, so expanding the Joints
+panel does not recenter the adjacent note or move the canvas.
 
 `src/app/components/armRig.ts` groups the existing CAD parts around the exported
 bearing origins and axes; it does not deform or replace the meshes. The sliders
@@ -49,6 +51,9 @@ Also check orbit/zoom, fullscreen, page scrolling, and model-download recovery.
 The About page combines the existing CAD viewer with the mission, assembly
 descriptions, engineering themes, and two public project links. Sections are
 content-sized rather than inheriting the site's full-screen section minimum.
+A space-themed header and chapter links separate the introduction from the
+technical content. Content sections share their width, heading layout, and
+spacing, with distinct background bands. Chapter anchors clear the fixed navbar.
 The source content was checked on September 21, 2026:
 
 - [WayBionic public profile](https://github.com/Waybionic/.github/blob/main/profile/README.md): Calgary-based student team, mission, and research priorities.

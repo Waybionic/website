@@ -44,7 +44,7 @@
 .stage {
   position: relative;
   width: 100%;
-  height: clamp(320px, calc(100svh - var(--navbar-height) - 13rem), 1040px);
+  height: var(--arm-stage-height, clamp(320px, calc(100svh - var(--navbar-height) - 13rem), 1040px));
   flex-shrink: 0;
   min-width: 0;
 }

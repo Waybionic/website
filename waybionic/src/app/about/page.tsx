@@ -1,6 +1,7 @@
 'use client';
 
 import dynamic from 'next/dynamic';
+import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowDown, ArrowRight, ArrowUpRight, Code2, Cpu, Monitor, Shield } from 'lucide-react';
 import './styles/about-page.css';
@@ -66,28 +67,28 @@ const projects = [
 export default function About() {
   return (
     <div className="about-page">
-      <header className="about-intro">
-        <div className="about-inner">
-          <p className="about-eyebrow">Calgary-based / Student-led / Established 2024</p>
-          <h1>About WayBionic</h1>
-          <div className="about-intro-row">
-            <p className="about-lead">
-              Developing a surgical robotic arm for surgery in space,
-              controlled remotely by a surgeon.
-            </p>
-            <div className="about-intro-detail">
-              <p>
-                Our goal is for a surgeon at a remote location to operate on a
-                patient in space using the robotic arm. This is a surgical robot,
-                not a prosthetic or a replacement for a human limb. We bring
-                mechanical design, electronics, software and biomedical thinking
-                together to work toward that goal.
-              </p>
-              <a className="about-text-link" href="#about-arm">Inside the arm <ArrowDown size={17} aria-hidden="true" /></a>
-            </div>
-          </div>
+      <header className="about-hero">
+        <Image className="about-hero-moon" src="/images/MoonLeft.png" alt="" aria-hidden="true" width={400} height={400} />
+        <Image className="about-hero-mascot" src="/images/pencilbionicnew.png" alt="" aria-hidden="true" width={500} height={500} />
+        <div className="about-inner about-hero-content">
+          <p className="about-eyebrow">Calgary / Student-led / Since 2024</p>
+          <h1>About <span>WayBionic</span></h1>
+          <p className="about-lead">
+            Developing a surgical robotic arm for surgery in space,
+            controlled remotely by a surgeon.
+          </p>
+          <p className="about-hero-detail">A surgical robot, not a prosthetic or a replacement for a human limb.</p>
+          <a className="about-hero-link" href="#about-arm">Inside the arm <ArrowDown size={18} aria-hidden="true" /></a>
         </div>
       </header>
+
+      <nav className="about-chapters" aria-label="About page sections">
+        <div className="about-inner">
+          <a href="#about-arm"><span>01</span> The arm <ArrowDown size={14} aria-hidden="true" /></a>
+          <a href="#about-engineering"><span>02</span> Engineering <ArrowDown size={14} aria-hidden="true" /></a>
+          <a href="#about-projects"><span>03</span> The code <ArrowDown size={14} aria-hidden="true" /></a>
+        </div>
+      </nav>
 
       <section className="about-arm-band" id="about-arm" aria-labelledby="about-arm-title">
         <div className="about-inner">

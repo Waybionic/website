@@ -68,7 +68,9 @@ section {
 }
 
 #mission {
+  --arm-stage-height: clamp(320px, calc(100svh - var(--navbar-height) - 13rem), 1040px);
   min-height: calc(100svh - var(--navbar-height));
+  justify-content: flex-start;
   padding: clamp(40px, 5svh, 80px) clamp(16px, 4vw, 112px);
   background: #fce7f3;
   overflow-x: clip;
@@ -78,7 +80,7 @@ section {
 #mission .mission-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.18fr) minmax(0, 0.82fr);
-  align-items: center;
+  align-items: start;
   gap: clamp(32px, 4vw, 112px);
   width: 100%;
   max-width: 2400px;
@@ -91,6 +93,9 @@ section {
 }
 
 #mission .mission-copy {
+  display: flex;
+  align-items: center;
+  min-height: calc(var(--arm-stage-height) + 8rem);
   padding-block: 32px 80px;
 }
 
@@ -154,6 +159,7 @@ section {
 
   #mission .mission-copy {
     order: -1;
+    min-height: 0;
     width: 100%;
     max-width: 640px;
     margin-inline: auto;

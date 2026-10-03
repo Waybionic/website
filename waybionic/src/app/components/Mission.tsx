@@ -24,11 +24,11 @@ export default function Mission() {
             />
             <h2 id="mission-title">Our Mission</h2>
             <p>
-              At <strong>WayBionic</strong>, we strive to revolutionize remote
-              surgery by developing a bionic arm inspired by the challenges of
-              performing medical procedures in space. Our goal is to create
-              innovative, reliable, and precise tools that empower both astronauts
-              and doctors, whether in orbit or on Earth.
+              At <strong>WayBionic</strong>, we are developing a surgical robotic
+              arm intended to let a surgeon operate remotely on a patient in
+              space. Our student team brings mechanical design, electronics,
+              software and biomedical thinking together to work toward precise,
+              reliable, surgeon-controlled care.
             </p>
             <Image
               src="/images/pencilbionicnew.png"
