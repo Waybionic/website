@@ -10,6 +10,7 @@ Open [the local arm viewer](http://127.0.0.1:3000/#mission) after starting the a
 - **Joints:** adjust base, shoulder, and elbow with mouse, touch, or keyboard. Manual input pauses the demo.
 - **Reset:** restore the exported pose and default camera.
 - **View controls:** drag to orbit, use the zoom buttons, or expand to fullscreen. Normal mouse-wheel input scrolls the page; Ctrl/Cmd-wheel zooms the model. Fullscreen also supports unmodified wheel zoom.
+- **Keyboard orbit:** Tab to the 3D view, then hold Shift and use the arrow keys to rotate. Tab moves on to the other controls. The view has a visible focus outline and screen-reader instructions, and is not keyboard-focusable while loading or unavailable.
 
 The viewer reuses Three.js, GLTFLoader, and OrbitControls. It loads the model near
 the viewport and renders only while the pose or camera changes, pausing offscreen

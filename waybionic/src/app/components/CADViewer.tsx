@@ -114,15 +114,21 @@ export default function CADViewer({ modelPath }: CADViewerProps) {
     renderer.shadowMap.enabled = true;
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     renderer.shadowMap.autoUpdate = false;
-    renderer.domElement.setAttribute('role', 'img');
-    renderer.domElement.setAttribute('aria-label', 'WayBionic mechanical arm, September 2026 CAD assembly');
+    renderer.domElement.tabIndex = -1;
+    renderer.domElement.setAttribute('role', 'application');
+    renderer.domElement.setAttribute('aria-label', 'Interactive 3D view of the WayBionic surgical robotic arm');
+    renderer.domElement.setAttribute('aria-describedby', `${controlId}-orbit-help`);
+    renderer.domElement.setAttribute('aria-keyshortcuts', 'Shift+ArrowLeft Shift+ArrowRight Shift+ArrowUp Shift+ArrowDown');
+    renderer.domElement.setAttribute('aria-disabled', 'true');
     stage.appendChild(renderer.domElement);
 
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(38, 1, 0.001, 100);
     const controls = new OrbitControls(camera, renderer.domElement);
+    controls.enabled = false;
     controls.enableDamping = true;
     controls.dampingFactor = 0.08;
+    controls.keyRotateSpeed = 4;
     controls.enablePan = false;
     controls.maxPolarAngle = Math.PI * 0.82;
     controls.minPolarAngle = 0.12;
@@ -144,6 +150,12 @@ export default function CADViewer({ modelPath }: CADViewerProps) {
 
     function fitCamera(resetDirection = false) {
       if (!sphere || !frameBounds) return;
+      if (resetDirection) {
+        const damping = controls.enableDamping;
+        controls.enableDamping = false;
+        controls.update();
+        controls.enableDamping = damping;
+      }
       const direction = resetDirection ? viewDirection : camera.position.clone().sub(controls.target).normalize();
       const { target, distance } = getArmCameraFrame(frameBounds, direction, camera.aspect, camera.fov);
       controls.target.copy(target);
@@ -219,6 +231,13 @@ export default function CADViewer({ modelPath }: CADViewerProps) {
       automaticFraming = false;
     }
 
+    function handleOrbitKey(event: KeyboardEvent) {
+      if (controls.enabled && (event.shiftKey || event.ctrlKey || event.metaKey)
+        && Object.values(controls.keys).includes(event.code)) {
+        handleManualView();
+      }
+    }
+
     function handleWheel(event: WheelEvent) {
       if (!event.ctrlKey && !event.metaKey && document.fullscreenElement !== viewerRef.current) {
         event.stopImmediatePropagation();
@@ -237,6 +256,9 @@ export default function CADViewer({ modelPath }: CADViewerProps) {
       cancelAnimationFrame(frame);
       frame = 0;
       actionsRef.current = null;
+      controls.enabled = false;
+      renderer.domElement.tabIndex = -1;
+      renderer.domElement.setAttribute('aria-disabled', 'true');
       setPlaying(false);
       setError('The 3D view was interrupted. Please reload the arm.');
       setStatus('error');
@@ -244,6 +266,8 @@ export default function CADViewer({ modelPath }: CADViewerProps) {
 
     controls.addEventListener('change', requestRender);
     controls.addEventListener('start', handleManualView);
+    renderer.domElement.addEventListener('keydown', handleOrbitKey);
+    controls.listenToKeyEvents(renderer.domElement);
     renderer.domElement.addEventListener('wheel', handleWheel, { capture: true, passive: true });
     renderer.domElement.addEventListener('webglcontextlost', handleContextLost);
     document.addEventListener('visibilitychange', handleVisibility);
@@ -356,6 +380,9 @@ export default function CADViewer({ modelPath }: CADViewerProps) {
             requestRender();
           },
         };
+        controls.enabled = true;
+        renderer.domElement.tabIndex = 0;
+        renderer.domElement.removeAttribute('aria-disabled');
         setStatus('ready');
         requestRender();
       } catch {
@@ -375,6 +402,7 @@ export default function CADViewer({ modelPath }: CADViewerProps) {
       resizeObserver.disconnect();
       visibilityObserver.disconnect();
       document.removeEventListener('visibilitychange', handleVisibility);
+      renderer.domElement.removeEventListener('keydown', handleOrbitKey);
       renderer.domElement.removeEventListener('wheel', handleWheel, true);
       renderer.domElement.removeEventListener('webglcontextlost', handleContextLost);
       controls.removeEventListener('change', requestRender);
@@ -386,7 +414,7 @@ export default function CADViewer({ modelPath }: CADViewerProps) {
       renderer.dispose();
       renderer.domElement.remove();
     };
-  }, [active, attempt, modelPath]);
+  }, [active, attempt, modelPath, controlId]);
 
   async function toggleFullscreen() {
     try {
@@ -413,6 +441,11 @@ export default function CADViewer({ modelPath }: CADViewerProps) {
         </div>
       </div>
 
+      <p id={`${controlId}-orbit-help`} className="sr-only">
+        Hold Shift and use the arrow keys to rotate the view. Use the zoom buttons
+        to zoom, or Reset arm and view to return to the starting view. Press Tab
+        to move to the next control.
+      </p>
       <div className={styles.stage} ref={stageRef} data-testid="arm-stage" aria-busy={status === 'loading'}>
         {status === 'loading' && <div className={styles.status} role="status"><LoaderCircle className={styles.spinner} size={24} /><span>Loading arm...</span></div>}
         {status === 'error' && <div className={styles.status} role="alert"><AlertCircle size={24} /><span>{error}</span><button type="button" className={styles.secondaryButton} onClick={() => setAttempt(value => value + 1)}><RotateCcw size={16} />Reload arm</button></div>}

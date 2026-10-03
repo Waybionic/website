@@ -1,6 +1,6 @@
 .viewer {
   --viewer-ink: #3c356c;
-  --viewer-muted: #796b80;
+  --viewer-muted: #6a617a;
   --viewer-line: #dfcbd9;
   position: relative;
   display: flex;
@@ -58,6 +58,11 @@
 
 .stage canvas:active {
   cursor: grabbing;
+}
+
+.stage canvas:focus-visible {
+  outline: 2px solid var(--viewer-ink);
+  outline-offset: -3px;
 }
 
 .status {
