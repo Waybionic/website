@@ -1,8 +1,9 @@
 export default function Hero() {
   return (
     <section
-      className="relative w-full flex flex-col items-center justify-center overflow-hidden min-h-[60vh] sm:min-h-[calc(100vh-var(--navbar-height,0px))]"
+      className="relative w-full flex flex-col items-center justify-center overflow-hidden"
       style={{
+        minHeight: "calc(100dvh - var(--navbar-height))",
         backgroundImage: "url('/images/starrybackground.png')",
         backgroundSize: "cover",
         backgroundPosition: "center",
