@@ -106,6 +106,8 @@ const teams: Team[] = [
       { name: "Zara Daudi",        image: "" },
       { name: "Meagan Zimmel", image: "/images/team/meagan-zimmel.jpg" },
       { name: "Shahmeen Sarmad",        image: "/images/team/shahmeen-sarmad.png" },
+      { name: "Sophia Soulliere", image: "/images/team/sophia-soulliere.jpg" },
+      { name: "Md Samiu Hossain", image: "/images/team/md-samiu.jpg" },
     ],
   },
   {
@@ -153,6 +155,7 @@ const teams: Team[] = [
     members: [
       { name: "Bridget Benedek-Koteles",  image: "/images/team/bridget-benedek-koteles.JPEG" },
       { name: "Hannah Nguyen",           image: "/images/team/hannah-nguyen.JPG" },
+      { name: "Daksh Srivastava",        image: "/images/team/daksh-srivastava.jpg" }
     ],
   },
   {
