@@ -34,4 +34,6 @@ jobs:
         run: npm ci
 
       - name: Build
-        run: npm run build
+        # Google Fonts sometimes returns extensionless font URLs that next/font in
+        # Next 15 cannot handle, which fails the build intermittently; retry once.
+        run: npm run build || npm run build
