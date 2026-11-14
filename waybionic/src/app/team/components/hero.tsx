@@ -51,6 +51,7 @@ type Team = {
   memberCircleColor: string;
   president?: Person[];
   vps?: Person[];
+  projectManagers?: Person[];
   leads?: Person[];
   jrLeads?: Person[];
   advisors?: Person[];
@@ -82,7 +83,12 @@ const teams: Team[] = [
       
     ],
     advisors: [
-      { name: "Sana Wahab", role: "ADVISOR", image: "" },
+      { name: "Sana Wahab", role: "ADVISOR", image: "/images/team/sana-wahab.png" },
+      { name: "Yassin Soliman", role: "ADVISOR", image: "/images/team/yassin-soliman.jpg" },
+      { name: "Mujtaba Zia", role: "ADVISOR", image: "/images/team/mujtaba-zia.jpeg" },
+    ],
+    projectManagers: [
+      { name: "Abdul Waase Qureshi", role: "PROJECT MANAGER", image: "/images/team/abdul-waase-qureshi.jpeg" },
     ],
     members: [],
   },
@@ -103,7 +109,7 @@ const teams: Team[] = [
       { name: "Hailey Tran",        image: "/images/team/hailey-tran.JPG" },
       { name: "Jaspreet Dhanoa",        image: "/images/team/jaspreet-dhanoa.jpg" },
       { name: "Safaa Asif",        image: "/images/team/safaa-asif.jpg" },
-      { name: "Zara Daudi",        image: "" },
+      { name: "Zara Daudi",        image: "/images/team/zara-daudi.png" },
       { name: "Meagan Zimmel", image: "/images/team/meagan-zimmel.jpg" },
       { name: "Shahmeen Sarmad",        image: "/images/team/shahmeen-sarmad.png" },
       { name: "Sophia Soulliere", image: "/images/team/sophia-soulliere.jpg" },
@@ -119,15 +125,11 @@ const teams: Team[] = [
     leadCircleColor: "#FBD896",
     memberCircleColor: "#B9AFD2",
     leads: [
-      { name: "Conrad Brabec", role: "TEAM LEAD", image: "/images/team/conrad-brabec.jpg" },
-    ],
-    jrLeads: [
-      { name: "Haziq Munir", role: "JR. LEAD", image: "/images/team/haziq-munir.jpg" },
+      { name: "Ava Jones", role: "TEAM LEAD", image: "/images/team/ava-jones.png" },
+      { name: "Faisal Al-taie", role: "TEAM LEAD", image: "/images/team/faisal-al-taie.png" },
     ],
     members: [
-      { name: "Abdul Qureshi",            image: "" },
       { name: "Aryan Al-Adani",            image: "/images/team/aryan-al-adani.jpg" },
-      { name: "Ava Jones",            image: "" },
       { name: "Kristen Powell",            image: "/images/team/kristen-powell.png" },
       { name: "Daniel Mogylevets",            image: "/images/team/daniel-mogylevets.jpg" },
       { name: "Luke Zenha",            image: "/images/team/luke-zenha.JPG" },
@@ -146,8 +148,8 @@ const teams: Team[] = [
     leadCircleColor: "#BEDBAC",
     memberCircleColor: "#B9AFD2",
     leads: [
-      { name: "Moumita Murshed", role: "TEAM LEAD", image: "" },
-      { name: "Julie Guirguis", role: "TEAM LEAD", image: "" },
+      { name: "Moumita Murshed", role: "TEAM LEAD", image: "/images/team/moumita-murshed.png" },
+      { name: "Julie Guirguis", role: "TEAM LEAD", image: "/images/team/julie-guirguis.png" },
     ],
     jrLeads: [
       { name: "Anahat Sidhu", role: "JR. LEAD", image: "/images/team/anahat-sidhu.jpg" },
@@ -166,23 +168,16 @@ const teams: Team[] = [
     leadCircleColor: "#A4C5C7",
     memberCircleColor: "#B9AFD2",
     leads: [
-      { name: "Yassin Soliman", role: "TEAM LEAD", image: "/images/team/yassin-soliman.jpg" },
-      { name: "Mujtaba Zia",   role: "TEAM LEAD", image: "/images/team/mujtaba-zia.jpeg" },
-    ],
-    jrLeads: [
-      { name: "Gianna Kong", role: "JR. LEAD", image: "/images/team/gianna-kong.jpg" },
+      { name: "Gianna Kong", role: "TEAM LEAD", image: "/images/team/gianna-kong.jpg" },
+      { name: "Karis Ovili", role: "TEAM LEAD", image: "/images/team/karis-ovili.jpg" },
     ],
     members: [
       { name: "Richard Nguyen",    image: "/images/team/richard-nguyen.png" },
       { name: "Harold Kim",        image: "/images/team/harold-kim.jpeg" },
-      { name: "Alan Bach",         image: "/images/team/alan-bach.png" },
       { name: "Khuzaymah Bin Haris",             image: "/images/team/khuzaymah-haris.png" },
       { name: "Ajmal Khidri",      image: "/images/team/ajmal-khidri.jpg" },
-      { name: "Abdullah Sheikh",      image: "/images/team/abdullah-sheikh.jpeg" },
       { name: "Malik Mahdivika",      image: "/images/team/malik-mahdivika.jpg" },
       { name: "Hamnah Suleman",     image: "/images/team/hamnah-suleman.jpg" },
-      { name: "Karis Ovili",     image: "/images/team/karis-ovili.jpg" },
-
     ],
   },
   {
@@ -210,8 +205,10 @@ function countPeople(teamId: string): number {
   return (
     (team.president?.length ?? 0) +
     (team.vps?.length ?? 0) +
+    (team.projectManagers?.length ?? 0) +
     (team.leads?.length ?? 0) +
     (team.jrLeads?.length ?? 0) +
+    (team.advisors?.length ?? 0) +
     team.members.length
   );
 }
@@ -270,6 +267,7 @@ function getAllPeople(team: Team): Person[] {
   return [
     ...(team.president ?? []),
     ...(team.vps ?? []),
+    ...(team.projectManagers ?? []),
     ...(team.leads ?? []),
     ...(team.jrLeads ?? []),
     ...(team.advisors ?? []),
@@ -367,6 +365,7 @@ function TeamCard({ team }: { team: Team }) {
   const totalCount =
     (team.president?.length ?? 0) +
     (team.vps?.length ?? 0) +
+    (team.projectManagers?.length ?? 0) +
     (team.leads?.length ?? 0) +
     (team.jrLeads?.length ?? 0) +
     (team.advisors?.length ?? 0) +
@@ -450,8 +449,16 @@ function TeamCard({ team }: { team: Team }) {
           />
         )}
 
-        {/* team leads, jr leads & advisors */}
-        {(hasLeads || hasJrLeads || hasAdvisors) && (
+        {(team.projectManagers?.length ?? 0) > 0 && (
+          <SectionRow
+            label="Project Manager"
+            people={team.projectManagers!}
+            circleColor={team.leadCircleColor}
+          />
+        )}
+
+        {/* team leads and jr. leads */}
+        {(hasLeads || hasJrLeads) && (
           <div className="flex flex-col sm:flex-row gap-6">
             {hasLeads && (
               <div className="min-w-[260px]">
@@ -473,17 +480,16 @@ function TeamCard({ team }: { team: Team }) {
                 />
               </div>
             )}
-            {hasAdvisors && (
-              <div className="min-w-[260px]">
-                <SectionRow
-                  label="Advisors"
-                  people={team.advisors!}
-                  circleColor={team.leadCircleColor}
-                  useGrid
-                />
-              </div>
-            )}
           </div>
+        )}
+
+        {hasAdvisors && (
+          <SectionRow
+            label="Advisors"
+            people={team.advisors!}
+            circleColor={team.leadCircleColor}
+            useGrid
+          />
         )}
 
         {/* team members */}
